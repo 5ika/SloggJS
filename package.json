@@ -1,15 +1,30 @@
 {
   "name": "slogg",
   "version": "0.0.1",
-  "description": "Logger avec contexte et couleurs",
+  "description": "Un logger simple, léger, coloré et contextualisé",
   "main": "index.js",
   "dependencies": {
     "chalk": "^1.1.1"
   },
   "devDependencies": {},
   "scripts": {
-    "test": ""
+    "test": "node example.js"
   },
-  "author": "Tim Izzo / Sika",
-  "license": "ISC"
+  "author": {
+    "name": "Tim Izzo / Sika",
+    "email": "tim.izzo@5ika.org"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/5ika/SloggJS"
+  },
+  "keywords": [
+    "log",
+    "logger",
+    "color",
+    "console",
+    "context",
+    "prefix"
+  ]
 }

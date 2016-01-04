@@ -68,4 +68,4 @@ Un exemple d'utilisation se trouve dans le fichier _example.js_.
 node example
 ```
 
-![](example.png)
+![](https://raw.githubusercontent.com/5ika/SloggJS/master/example.png)
