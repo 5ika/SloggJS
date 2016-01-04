@@ -1,0 +1,16 @@
+[{
+  "name": "update",
+  "color": "blue",
+  "prefix": "UPDATE",
+  "description": "Informations sur les mises à jour"
+}, {
+  "name": "user",
+  "color": "yellow",
+  "prefix": "USER",
+  "description": "Informations sur la gestion des utilisateurs"
+}, {
+  "name": "api",
+  "color": "red",
+  "prefix": "API",
+  "description": "Requêtes à l'API"
+}]
