@@ -1,16 +1,19 @@
+Slogg est un logger pour NodeJS qui se veut simple d'utilisation et customisable.
+
+Il permet de créer des _contextes_ de messages de log pour réunir les messages autrement qu'avec les standards log, info, warn, error...
+
 # Installation
+Slugg s'installe facilement dans votre projet avec npm :
 
 ```bash
-npm install slogg
+npm install --save slogg
 ```
 
 # Utilisation
-Il y a deux manières d'utiliser Slogg.
-
 ## Avec le fichier slogg.js
 Cette manière permet de définir des contextes dans un fichier _slogg.json_ à placer dans le dossier racine du projet. Le fichier _slogg.json_ doit respecter la structure suivante :
 
-```json
+```
 [
   {
     "name": "Nom du contexte",
@@ -53,9 +56,9 @@ Il est cependant possible de les ré-écrire à partir du fichier _slogg.json_.
 Si un module correspond à un seul contexte, il est possible de fixer un contexte pour l'ensemble du module. Dans ce cas, le fichier _slogg.js_ n'est pas utilisé.
 
 ```javascript
-var slogg = require('slogg')('MonContexte', 'cyan');
+var slogg = require('slogg')('SERVER', 'magenta');
 
-slogg("J'apprecie les fruits au sirop");
+slogg("The server is shutting down");
 ```
 
 # Exemple
