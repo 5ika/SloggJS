@@ -1,6 +1,6 @@
 {
   "name": "slogg",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Un logger simple, léger, coloré et contextualisé",
   "main": "index.js",
   "dependencies": {
