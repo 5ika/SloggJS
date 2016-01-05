@@ -10,10 +10,10 @@ module.exports = slogg = function (context, color) {
     if(color) {
       return function (msg) {
         console.log(chalk[color](time() + chalk.bold(' [' + context + '] ') + msg));
-      }
+      };
     } else return function (msg) {
       console.log(chalk.bold('[' + context + '] ') + msg);
-    }
+    };
   } else {
     var slogg = {
       log: function (msg) {
@@ -31,13 +31,13 @@ module.exports = slogg = function (context, color) {
       error: function (msg) {
         console.error(chalk.red.bold(time() + ' ' + msg));
       }
-    }
+    };
 
     var contexts = require('./contexts.js');
     contexts.forEach(function (context) {
       slogg[context.name] = function (msg) {
-        console.log(chalk[context.color](time() + chalk.bold(' [' + context.prefix + '] ') + msg))
-      }
+        console.log(chalk[context.color](time() + chalk.bold(' [' + context.prefix + '] ') + msg));
+      };
     });
 
     return slogg;
