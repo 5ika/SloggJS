@@ -1,45 +1,43 @@
-var chalk = require('chalk');
-
+const chalk = require('chalk');
+const logger = require('./logger');
 function time() {
-  var now = new Date();
-  return now.toLocaleString();
+    var now = new Date();
+    return now.toLocaleString();
 }
-
 module.exports = slogg = function (context, color) {
-  if(context) {
-    if(color) {
-      return function (msg) {
-        console.log(chalk[color](time() + chalk.bold(' [' + context + '] ') + msg));
-      };
-    } else return function (msg) {
-      console.log(chalk.bold('[' + context + '] ') + msg);
-    };
-  } else {
-    var slogg = {
-      log: function (msg) {
-        console.log(time() + ' ' + msg);
-      },
-      info: function (msg) {
-        console.log(chalk.cyan(time() + ' ' + msg));
-      },
-      debug: function (msg) {
-        console.info(chalk.white.bgRed(time() + ' ' + msg));
-      },
-      warn: function (msg) {
-        console.warn(chalk.yellow(time() + ' ' + msg));
-      },
-      error: function (msg) {
-        console.error(chalk.red.bold(time() + ' ' + msg));
-      }
-    };
-
-    var contexts = require('./contexts.js');
-    contexts.forEach(function (context) {
-      slogg[context.name] = function (msg) {
-        console.log(chalk[context.color](time() + chalk.bold(' [' + context.prefix + '] ') + msg));
-      };
-    });
-
-    return slogg;
-  }
+    if (context) {
+        if (color) {
+            return function (msg) {
+                logger((msg) => chalk[color](time() + chalk.bold(' [' + context + '] ') + msg), msg);
+            };
+        } else
+            return function (msg) {
+                loger((msg) => chalk.bold('[' + context + '] ') + msg, msg);
+            };
+    } else {
+        var slogg = {
+            log: function (msg) {
+                logger((msg) => time() + ' ' + msg, msg);
+            },
+            info: function (msg) {
+                logger((msg) => chalk.cyan(time() + ' ' + msg), msg);
+            },
+            debug: function (msg) {
+                logger((msg) => chalk.white.bgRed(time() + ' ' + msg), msg);
+            },
+            warn: function (msg) {
+                logger((msg) => chalk.yellow(time() + ' ' + msg), msg);
+            },
+            error: function (msg) {
+                logger((msg) => chalk.red.bold(time() + ' ' + msg), msg);
+            }
+        };
+        var contexts = require('./contexts.js');
+        contexts.forEach(function (context) {
+            slogg[context.name] = function (msg) {
+                logger((msg) => chalk[context.color](time() + chalk.bold(' [' + context.prefix + '] ') + msg), msg);
+            };
+        });
+        return slogg;
+    }
 };
